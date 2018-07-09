@@ -118,7 +118,7 @@ public abstract class AbstractConfigAttributeRequestMatcherRegistry<C> extends
 		for (UrlMapping mapping : getUrlMappings()) {
 			RequestMatcher matcher = mapping.getRequestMatcher();
 			Collection<ConfigAttribute> configAttrs = mapping.getConfigAttrs();
-			requestMap.put(matcher, configAttrs);
+			requestMap.putIfAbsent(matcher, configAttrs);
 		}
 		return requestMap;
 	}
